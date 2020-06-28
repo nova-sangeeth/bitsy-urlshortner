@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 <head>
     <meta charset="UTF-8">
@@ -10,18 +11,25 @@
 
 <body>
     {% block content %}
+
     <div class="container">
-        <form action="" method="POST">
+        <form action="" class="form" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-outline-success">Create</button>
+            <div class="login-box">
+                <div class="textbox">
+                    {{ form }}
+                </div>
+                <button class="btn ">Create</button>
+                <center>
+                    <a href="http://127.0.0.1:8000/{{  shortened_url  }}">{{  shortened_url  }}</a>
+
+                </center>
+            </div>
         </form>
     </div>
-    <div class="container">
-        <p class="lead">
-            {{  shortened_url  }}
-        </p>
-    </div>
+
+
+
     {% endblock content %}
 </body>
 

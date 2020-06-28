@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 <head>
     <meta charset="UTF-8">
@@ -10,10 +11,11 @@
 
 <body>
     {% block content %}
-    <div class="container">
-        <h1 class="display-4">
-            Hello there!!
-        </h1>
+    <div class="login-box">
+        <div class="container">
+            <a href="/new_url" class="btn">Generate New Url</a>
+        </div>
+
     </div>
     {% endblock content %}
 </body>
