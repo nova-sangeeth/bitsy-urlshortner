@@ -15,15 +15,17 @@ def home(request, token):
 
 def new_url(request):
     form = Url_form(request.POST)
-    a = ""
+    shortened_url = ""
     if request.method == "POST":
         if form.is_valid():
             new_url = form.save(commit=False)
-            a = shortner().issue_token()
-            new_url.short_url = a
+            shortened_url = shortner().issue_token()
+            new_url.short_url = shortened_url
             new_url.save()
         else:
             form = Url_form()
-            a = "Not a Valid URL "
+            shortened_url = "Not a Valid URL "
 
-    return render(request, "new_url.html", {"form": form, "a": a})
+    return render(
+        request, "new_url.html", {"form": form, "shortened_url": shortened_url}
+    )
