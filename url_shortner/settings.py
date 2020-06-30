@@ -27,7 +27,7 @@ SECRET_KEY = "=n$iyl5um!540yf3n5z85=0!^lwahuxm)=3jzjneg^o0qkj)wz"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "drix-url.herokuapp.com", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["0.0.0.0", "drix-app.herokuapp.com", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -139,4 +139,7 @@ if os.getcwd() == "/app:":
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PHOTO", "https")
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     DEBUG = True
+
+if "DATABASE_URL" in os.environ:
+    DATABASES = {"default": dj_database_url.config()}
 
