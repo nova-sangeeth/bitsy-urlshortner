@@ -17,6 +17,7 @@ body {
     font-weight: 200;
     color: aqua;
 }
+
 html, body {
     height: 100%;
 }
@@ -31,6 +32,7 @@ html, body {
     color: aquamarine;
     font-size: 30px;
 }
+
 .login-box{
     width: 300px;
     position: absolute;
