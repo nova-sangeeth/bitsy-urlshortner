@@ -11,13 +11,17 @@
 
 <body>
     {% block content %}
-
     <div class="container">
         <form action="" class="form" method="POST">
             {% csrf_token %}
             <div class="login-box">
+                <p>URL</p>
                 <div class="textbox">
-                    {{ form }}
+                    {{ form.long_url }}
+                </div>
+                <p>Enter a Slug</p>
+                <div class="textbox">
+                    {{ form.slug }}
                 </div>
                 <button class="btn ">Create</button>
                 <center>
@@ -25,13 +29,9 @@
                     <a href="{{ request.scheme }}://{{ request.get_host }}/{{  shortened_url  }}">click here to
                         redirect.</a>
                 </center>
-
             </div>
         </form>
     </div>
-
-
-
     {% endblock content %}
 </body>
 
