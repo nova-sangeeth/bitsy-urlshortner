@@ -132,7 +132,18 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.content {
-  flex: 1;
-  padding: 20px;
-} 
+
+
+
+.button {
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all0.3s ease Os;
+}
+
+.button:hover {
+  background-color: rgba(0, 87, 169, 0.8)
+}
