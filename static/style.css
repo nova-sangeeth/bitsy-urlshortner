@@ -118,6 +118,10 @@ body {
     cursor: pointer;
     margin: 12px 0;
   }
+  .btn:hover {
+    background-color: rgba(0, 87, 169, 0.8);
+    text-decoration: none;
+  }
   
 
   .container-x {
