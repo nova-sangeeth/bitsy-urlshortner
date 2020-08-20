@@ -119,11 +119,17 @@ body {
     margin: 12px 0;
   }
   
-#footer {
-  /* display: inline !important; */
-  background-color: #4caf50 !important;
-  padding: 20px !important;
-  width: 100% !important;
+
+  .container-x {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .content {
