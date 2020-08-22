@@ -21,7 +21,7 @@ def new_url(request):
     if request.method == "POST":
         if form.is_valid():
             new_url = form.save(commit=False)
-            shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
+                shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
             new_url.short_url = shortened_url
             new_url.save()
         else:
