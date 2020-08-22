@@ -26,8 +26,9 @@
                 <button class="btn ">Create</button>
                 <center>
                     <p>{{ request.META.HTTP_HOST }}/{{  shortened_url  }}</p>
-                    <a href="{{ request.scheme }}://{{ request.get_host }}/{{  shortened_url  }}">click here to
-                        redirect.</a>
+                    <a class="a-link" href="{{ request.scheme }}://{{ request.get_host }}/{{  shortened_url  }}">Click
+                        here to
+                        Redirect.</a>
                 </center>
             </div>
         </form>
