@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import short_urls
 from .forms import Url_form
 from .shortner import shortner
-from .url_ext import url_sep
 
 
 def index(request):
@@ -18,11 +17,11 @@ def new_url(request):
     form = Url_form(request.POST)
     shortened_url = ""
     slug_seperator = "-"
+    amazon_slug = "amazn"
     if request.method == "POST":
         if form.is_valid():
             new_url = form.save(commit=False)
-            # shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
-            shortened_url = url_sep().issue_token() + slug_seperator + new_url.slug
+            shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
             new_url.short_url = shortened_url
             new_url.save()
         else:
