@@ -22,5 +22,5 @@ def extractor(url):
         return "".join(random.choice(letters) for i in range(self.token_size))
 
 
-extractor(url)
+# extractor(url)
 # https://www.amazon.in/
