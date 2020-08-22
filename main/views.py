@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import short_urls
 from .forms import Url_form
 from .shortner import shortner
+from .url_ext import url_sep
 
 
 def index(request):
