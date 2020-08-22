@@ -24,9 +24,21 @@
 </head>
 
 <body>
-    {% block content %}
+    <header id="pageHeader">
+        <a href="/" style="text-decoration: none; color: rgb(255, 255, 255);">URL Shortner</a>
+    </header>
 
-    {% endblock content %}
+    <div id="mainArticle">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+    <footer id="pageFooter">
+        <center>
+            <a class="" href="https://github.com/nova-sangeeth/drix-url">Github</a>
+        </center>
+    </footer>
+
 </body>
 
 </html>

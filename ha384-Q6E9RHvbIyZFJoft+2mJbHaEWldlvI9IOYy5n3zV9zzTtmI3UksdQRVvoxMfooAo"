@@ -1,0 +1,199 @@
+[33mcommit 7a755b3262ddae7c46307c75c5461a8f89f0bc57[m[33m ([m[1;36mHEAD -> [m[1;32mtestout[m[33m)[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Wed Jul 15 01:48:36 2020 +0530
+
+    changed the url into a namespace template syntax for the / error
+
+[33mcommit 90d8a32f3520defc1954bcf22ac7b651f9a9f701[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Wed Jul 15 01:43:53 2020 +0530
+
+    renamed the base.html files and made changes to them.
+
+[33mcommit ed62691c8d709a486a071fe201d8ebe31a807ec0[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Wed Jul 15 01:40:30 2020 +0530
+
+    added all  the allauth templates the application.
+
+[33mcommit e40e543af06ddc8377820b9e75f3f1ec2b6c926a[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Mon Jul 13 21:17:01 2020 +0530
+
+    added code to concatenate the slug value with the token that is being generated for the long_url.
+
+[33mcommit c0090cc50201e806cf5ac84f7a3a3b3b39149d78[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Mon Jul 13 21:16:25 2020 +0530
+
+    added some workout code.
+
+[33mcommit 4fe50e8fa65fe6c7eb68d02417d02c167f4665b8[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Mon Jul 13 21:16:05 2020 +0530
+
+    added changes to the models --new field "slug"
+
+[33mcommit ebbea49e83e0da75668dec6fc1a123ca3fc6ea4c[m[33m ([m[1;31morigin/testout[m[33m)[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Fri Jul 3 02:10:00 2020 +0530
+
+    removed the n = nova_ string  and removed the concatenation also to add domain based token generation in the future.
+
+[33mcommit 483278e6f4354e9650962f64749d95e821f48726[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Fri Jul 3 02:08:54 2020 +0530
+
+    added the __str__ method to show the short urls in the list.
+
+[33mcommit 2e9e77c737edb2a3820f14aa543a620333fbceac[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Fri Jul 3 02:08:24 2020 +0530
+
+    added the short_urls model to the admin panel .
+
+[33mcommit add9e67b86583a780e88d15842b4df49157b7ef1[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Fri Jul 3 01:59:26 2020 +0530
+
+    FIX: changed {{ request.META.HTTP_HOST }} to {{ request.scheme }}://{{ request.get_host }} which adds the domain name two times to the url
+
+[33mcommit 4d2165d9a820a79ae7cbfa9d7b6f5d532c769590[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Fri Jul 3 01:41:52 2020 +0530
+
+    removed the required arg for the long url field in the model.
+
+[33mcommit f0196bddb605c84bd742e33d749634348a9ad303[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Mon Jun 29 23:38:25 2020 +0530
+
+    added sub methods for new features
+
+[33mcommit 39f96282979c38ca63a937ea9365d3f839befbd9[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Mon Jun 29 00:14:14 2020 +0530
+
+    removed the link tag for the shortened url
+
+[33mcommit ea098b8e473217d20780aa1a58b4f49f7428432a[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 21:12:17 2020 +0530
+
+    added new styles and linked it to base.html
+
+[33mcommit 285d653497705dfc91d7fa1a407098486147aaaf[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 21:07:58 2020 +0530
+
+    added crispy template pack
+
+[33mcommit fe7b79d3b682b542389ed8ba71156f307e4cde60[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 21:07:36 2020 +0530
+
+    added changes to the index  and new_url template
+
+[33mcommit abbdb7fb117581c404a78e2c381756d53ffa5727[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 19:09:32 2020 +0530
+
+    renamed stylesheet.ss to style.css
+    
+    removed the bootstrap cdn and added custom styling
+
+[33mcommit e5bbe5845bc82d533600ca8de73b958f502f6c3d[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 19:08:30 2020 +0530
+
+    fixed issue with style.css and static files not loading.
+
+[33mcommit 1d3e7511ccd26e20da87cd2fca59e8e962216dc9[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 17:27:24 2020 +0530
+
+    changed the a to shortened url
+
+[33mcommit e03eaba41432d87428649e79e04080960d70a815[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 17:24:31 2020 +0530
+
+    made changes to the logic to add string "nova_" before every link that is created
+
+[33mcommit 1807e6a6a653e9e59ee66cd2caa2a0d20ccb35b3[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 17:03:04 2020 +0530
+
+    added new migrations
+
+[33mcommit a04e7117de4e99b36539027a9d60b6a69c4b24f0[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 17:02:54 2020 +0530
+
+    created new template for new_url with form
+
+[33mcommit 2c3c044011bc474a92bad19c1e34a1a3d5703f64[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 17:02:26 2020 +0530
+
+    added the string token url to the main urls file (Unable to find the regex for string tokens in a url)
+
+[33mcommit 32a4b5e3db74ce4fca1f43ceabe504bbd51def51[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 17:01:28 2020 +0530
+
+    added the logic for converting the given URL
+
+[33mcommit 0f3ba0f856a310cc9f7ceb19d18e52f82c765b89[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 17:00:30 2020 +0530
+
+    created a model and form using django's modelform
+
+[33mcommit 419300dc472472b3e026b2fc2cd1744d2d5d5b0b[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 17:00:02 2020 +0530
+
+    added new_url view to the apps urls file.
+
+[33mcommit a90476e9efd44874e8e141951d4900c390310937[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 16:59:25 2020 +0530
+
+    changed the value a to shortened url
+
+[33mcommit 390a81417e3f6b3a8447b9548f4b8764ff32739a[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 16:55:58 2020 +0530
+
+    added views for home page and new url
+
+[33mcommit b1771ec8559ced99266c15addd3ea2364e86f451[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 16:06:47 2020 +0530
+
+    added new templates and stylesheet
+
+[33mcommit 07adf325c0febd1aa60c6c92d929953f3d98d88f[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 16:06:19 2020 +0530
+
+    added base path for templates and static files.
+
+[33mcommit 86def78acab8b7be038a99b254d2d1f1e527b4d6[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 16:03:30 2020 +0530
+
+    added allauth configs to the settings and urls
+
+[33mcommit eba7dd786f0e0d8e37697cc746ffb5775d8ee78c[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 16:02:58 2020 +0530
+
+    added new app main and created view index
+
+[33mcommit bc951b6ad013774121f9f31509542f863f1804aa[m
+Author: nova-sangeeth <novasangeeth@outlook.com>
+Date:   Sun Jun 28 15:35:03 2020 +0530
+
+    created new project using django
