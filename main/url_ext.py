@@ -3,7 +3,7 @@ import random
 import string
 
 
-url = input("Enter the url")
+# url = input("Enter the url:")
 
 
 class url_sep:
@@ -21,6 +21,7 @@ class url_sep:
             return "amz--shp-" + "".join(
                 random.choice(letters) for i in range(token_size)
             )
+
         return "".join(random.choice(letters) for i in range(token_size))
         print(token_size)
 
