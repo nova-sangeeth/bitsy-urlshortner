@@ -17,8 +17,11 @@ class url_sep:
         token_size = 5
         letters = string.ascii_letters
         if extratcted_url.domain == "amazon":
-        print("ama--shp-" + "".join(random.choice(letters) for i in range(token_size)))
-    return "".join(random.choice(letters) for i in range(token_size))
+
+            return "amz--shp-" + "".join(
+                random.choice(letters) for i in range(token_size)
+            )
+        return "".join(random.choice(letters) for i in range(token_size))
         print(token_size)
 
     def issue_token(self):
