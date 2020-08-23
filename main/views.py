@@ -32,6 +32,27 @@ def new_url(request):
                     + amazon_slug
                     + new_url.slug
                 )
+            elif extracted_url.domain == "google":
+                shortened_url = (
+                    shortner().issue_token()
+                    + slug_seperator
+                    + google_slug
+                    + new_url.slug
+                )
+            elif extracted_url.domain == "facebook":
+                shortened_url = (
+                    shortner().issue_token()
+                    + slug_seperator
+                    + facebook_slug
+                    + new_url.slug
+                )
+            elif extracted_url.domain == "youtube":
+                shortened_url = (
+                    shortner().issue_token()
+                    + slug_seperator
+                    + youtube_slug
+                    + new_url.slug
+                )
             else:
                 shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
             # -------------------------------
