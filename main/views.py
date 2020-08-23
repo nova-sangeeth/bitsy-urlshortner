@@ -20,7 +20,6 @@ def new_url(request):
     form = Url_form(request.POST)
     shortened_url = ""
     slug_seperator = "-"
-    amazon_slug = "amazn"
     if request.method == "POST":
         if form.is_valid():
             new_url = form.save(commit=False)
