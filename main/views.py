@@ -56,8 +56,7 @@ def new_url(request):
             else:
                 shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
             # -------------------------------
-            print(form.cleaned_data["long_url"] + "LOOK OVER HERE")
-            # shortened_url = url_sep().extractor() + slug_seperator + new_url.slug
+
             new_url.short_url = shortened_url
             new_url.save()
         else:
