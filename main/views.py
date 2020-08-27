@@ -11,6 +11,10 @@ def index(request):
     return render(request, "index.html")
 
 
+def about(request):
+    return render(request, "about.html")
+
+
 def home(request, token):
     long_url = short_urls.objects.filter(short_url=token)[0]
     return redirect(long_url.long_url)
