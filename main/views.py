@@ -4,6 +4,7 @@ from .forms import Url_form
 from .shortner import shortner
 from .url_ext import url_sep
 import tldextract
+from .custom_domain_slugs import *
 
 
 def index(request):
@@ -19,7 +20,6 @@ def new_url(request):
     form = Url_form(request.POST)
     shortened_url = ""
     slug_seperator = "-"
-    amazon_slug = "amazn"
     if request.method == "POST":
         if form.is_valid():
             new_url = form.save(commit=False)
@@ -32,11 +32,31 @@ def new_url(request):
                     + amazon_slug
                     + new_url.slug
                 )
+            elif extracted_url.domain == "google":
+                shortened_url = (
+                    shortner().issue_token()
+                    + slug_seperator
+                    + google_slug
+                    + new_url.slug
+                )
+            elif extracted_url.domain == "facebook":
+                shortened_url = (
+                    shortner().issue_token()
+                    + slug_seperator
+                    + facebook_slug
+                    + new_url.slug
+                )
+            elif extracted_url.domain == "youtube":
+                shortened_url = (
+                    shortner().issue_token()
+                    + slug_seperator
+                    + youtube_slug
+                    + new_url.slug
+                )
             else:
                 shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
             # -------------------------------
-            print(form.cleaned_data["long_url"] + "LOOK OVER HERE")
-            # shortened_url = url_sep().extractor() + slug_seperator + new_url.slug
+
             new_url.short_url = shortened_url
             new_url.save()
         else:
