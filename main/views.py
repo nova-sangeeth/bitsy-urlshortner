@@ -56,6 +56,13 @@ def new_url(request):
                     + youtube_slug
                     + new_url.slug
                 )
+            elif extracted_url.domain == "instagram":
+                shortened_url = (
+                    shortner().issue_token()
+                    + slug_seperator
+                    + instagram_slug
+                    + new_url.slug
+                )
             else:
                 shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
             # -------------------------------
