@@ -167,3 +167,7 @@ a {
   text-decoration: none;
   color :rgb(0, 102, 218);
 }
+
+ul {
+  font-size: 12px;
+} 
