@@ -43,6 +43,19 @@
 
         {% endblock content %}
     </div>
+    <div id="siteAds">
+        {% if messages %}
+
+        <display>Messages:</display>
+        <ul>
+            {% for message in messages %}
+            <p class="lead"> {{message}}</p>
+            {% endfor %}
+        </ul>
+
+        {% endif %}
+
+    </div>
     <footer id="pageFooter">
         <center>
             <a class="" href="https://github.com/nova-sangeeth/drix-url">Github</a>
