@@ -14,7 +14,7 @@ class short_urls(models.Model):
 
 
 class UserProfile(models.Model):
-    User = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=64, null=True)
     age = models.IntegerField(null=True)
     country = models.CharField(null=True, max_length=24)
