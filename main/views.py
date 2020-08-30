@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import short_urls, UserProfile
-from .forms import Url_form
+from .forms import Url_form, profile_registration_form
 from .shortner import shortner
 from .url_ext import url_sep
 import tldextract
 from .custom_domain_slugs import *
+from django.contrib.auth.models import User
 
 
 def index(request):
