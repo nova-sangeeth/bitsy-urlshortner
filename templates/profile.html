@@ -9,7 +9,16 @@
 </head>
 
 <body>
-
+    {% block content %}
+    <div>
+        <h1>Hello, {{ request.user.username }}</h1>
+        {% for items in user  %}
+        <li class='lead'>Name: {{ items.name }}</li>
+        <li class='lead'>Age: {{ items.age }}</li>
+        <li class='lead'>Country: {{ items.country }}</li>
+        {% endfor %}
+    </div>
+    {% endblock content %}
 </body>
 
 </html>
