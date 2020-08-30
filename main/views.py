@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import short_urls, UserProfile
 from .forms import Url_form, profile_registration_form
 from .shortner import shortner
@@ -31,6 +31,17 @@ def registration(request):
             form.save()
             return redirect("profile")
     return render(request, "registration.html", {"form": form})
+
+
+def edit_profile(request):
+    user = User.objects.get(username=request.user.username)
+    profile = get_object_or_404(UserProfile, user=user)
+    form = profile_registration_form(request.POST or None, instance=profile)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect("profile")
+    return render(request, "edit_profile.html", {"form": form})
 
 
 def new_url(request):
