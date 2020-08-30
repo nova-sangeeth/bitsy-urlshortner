@@ -21,6 +21,16 @@ def profile(request):
     return render(request, "profile.html", {"user": user})
 
 
+def registration(request):
+    user = User.objects.get(username=request.user.username)
+    profile = UserProfile(user=user)
+    form = profile_registration_form(request.POST or None, instance=profile)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+    return render(request, "registration.html", {"form": form})
+
+
 def new_url(request):
     form = Url_form(request.POST)
     shortened_url = ""
