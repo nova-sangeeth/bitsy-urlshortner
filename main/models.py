@@ -17,6 +17,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=64, null=True)
     age = models.IntegerField(null=True)
+    occupation_sector = models.CharField(null=True, max_length=64)
     country = models.CharField(null=True, max_length=24)
 
     def __str__(self):
