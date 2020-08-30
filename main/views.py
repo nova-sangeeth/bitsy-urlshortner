@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import short_urls
+from .models import short_urls, UserProfile
 from .forms import Url_form
 from .shortner import shortner
 from .url_ext import url_sep
@@ -14,6 +14,11 @@ def index(request):
 def home(request, token):
     long_url = short_urls.objects.filter(short_url=token)[0]
     return redirect(long_url.long_url)
+
+
+def profile(request):
+    user = UserProfile.objects.filter(user=request.user)
+    return render(request, "profile.html", {"user": user})
 
 
 def new_url(request):
