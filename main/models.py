@@ -31,3 +31,5 @@ class user_created_url(models.Model):
     slug = models.CharField(max_length=16, null=True)
     created = models.DateTimeField(editable=False, null=True)
 
+    def __str__(self):
+        return str(self.user)
