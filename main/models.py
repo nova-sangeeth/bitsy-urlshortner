@@ -23,3 +23,11 @@ class UserProfile(models.Model):
     def __str__(self):
         return str(self.user)
 
+
+class user_created_url(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    short_url = models.CharField(max_length=20, null=True)
+    long_url = models.URLField("URL", max_length=512)
+    slug = models.CharField(max_length=16, null=True)
+    created = models.DateTimeField(editable=False, null=True)
+
