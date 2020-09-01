@@ -33,6 +33,7 @@
 
         <div style='justify-content: space-end;'>
             <a href="/profile/" class="btn btn-outline-success"> {{  user.username }} Profile</a>
+            <a href="{% url 'my_url' %}" class="btn btn-outline-success"> My URLs</a>
             <a class="btn btn-outline-danger" href="{% url 'account_logout' %}">Sign Out</a>
         </div>
 
