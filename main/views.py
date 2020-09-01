@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import short_urls, UserProfile
+from .models import short_urls, UserProfile, user_created_url
 from .forms import Url_form, profile_registration_form
 from .shortner import shortner
 from .url_ext import url_sep
@@ -20,6 +20,14 @@ def home(request, token):
 def profile(request):
     user = UserProfile.objects.filter(user=request.user)
     return render(request, "profile.html", {"user": user})
+
+
+def my_url(request):
+    current_user = request.user
+    my_url = user_created_url.objects.filter(user=current_user)
+    return render(
+        request, "my_urls.html", {"current_user": current_user, "my_url": my_url}
+    )
 
 
 def registration(request):
