@@ -104,22 +104,3 @@ def new_url(request):
         request, "new_url.html", {"form": form, "shortened_url": shortened_url}
     )
 
-
-def user_created_url_view(request):
-    form = user_url_form(request.POST or None)
-    shortened_url = ""
-    slug_seperator = "-"
-    if request.method == "POST":
-        if form.is_valid():
-            new_url = form.save(commit=False)
-
-            shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
-            # -------------------------------
-            new_url.user = request.user
-            new_url.short_url = shortened_url
-            new_url.save()
-        else:
-            form = user_url_form()
-            shortened_url = "Not a Valid URL."
-
-    return render(request, "new.html", {"form": form, "shortened_url": shortened_url})
