@@ -1,4 +1,4 @@
-from .models import short_urls, UserProfile
+from .models import short_urls, UserProfile, user_created_url
 
 from django import forms
 
@@ -16,3 +16,9 @@ class profile_registration_form(forms.ModelForm):
         fields = "__all__"
         exclude = ("user",)
 
+
+class user_url_form(forms.ModelForm):
+    class Meta:
+        model = user_created_url
+        fields = "__all__"
+        exclude = ("user",)
