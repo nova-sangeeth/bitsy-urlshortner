@@ -1,5 +1,14 @@
 from django.conf.urls import url
-from .views import index, new_url, profile, registration, home, edit_profile, my_url
+from .views import (
+    index,
+    new_url,
+    profile,
+    registration,
+    home,
+    edit_profile,
+    my_url,
+    user_created_url_view,
+)
 
 urlpatterns = [
     url(r"^$", index, name="index"),
@@ -8,5 +17,6 @@ urlpatterns = [
     url(r"^registration/$", registration, name="registration"),
     url(r"^edit_profile/$", edit_profile, name="edit_profile"),
     url(r"^my_url/$", my_url, name="my_url"),
+    url(r"^user_url/$", user_created_url_view, name="user_url"),
 ]
 
