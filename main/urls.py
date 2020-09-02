@@ -7,7 +7,6 @@ from .views import (
     home,
     edit_profile,
     my_url,
-    user_created_url_view,
 )
 
 urlpatterns = [
