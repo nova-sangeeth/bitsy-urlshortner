@@ -10,12 +10,15 @@
 
 <body>
     {% block content %}
+
     <div>
         <h1>Hello {{ user.username }} Check out Your converted urls.</h1>
     </div>
     {% for url in my_url %}
     <p>Shortened Token: {{ url.short_url }}</p>
-    <p>Main Url: {{ url.long_url }}</p>
+    <p>Main Url:
+        <a href="{{ url.long_url }}">{{ url.long_url }} </a>
+    </p>
     <p>Slug: {{ url.slug }}</p>
     <p>``````````````````````````````````````````````````````````````</p>
     {% endfor %}
