@@ -21,4 +21,4 @@ class user_url_form(forms.ModelForm):
     class Meta:
         model = user_created_url
         fields = "__all__"
-        exclude = ("user",)
+        exclude = ("user", "short_url")
