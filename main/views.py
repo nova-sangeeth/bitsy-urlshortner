@@ -19,7 +19,7 @@ def home(request, token):
 
 def profile(request):
     user = UserProfile.objects.filter(user=request.user)
-    return render(request, "profile.html", {"user": user})
+    return render(request, "user_profile.html", {"user": user})
 
 
 def my_url(request):
