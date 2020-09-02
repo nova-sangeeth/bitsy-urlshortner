@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import short_urls, UserProfile, user_created_url
-from .forms import Url_form, profile_registration_form
+from .forms import Url_form, profile_registration_form, user_url_form
 from .shortner import shortner
 from .url_ext import url_sep
 import tldextract
@@ -92,7 +92,8 @@ def new_url(request):
             else:
                 shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
             # -------------------------------
-
+            # added this line to link the user foreign key of the user
+            new_url.user = request.user
             new_url.short_url = shortened_url
             new_url.save()
         else:
@@ -102,3 +103,23 @@ def new_url(request):
     return render(
         request, "new_url.html", {"form": form, "shortened_url": shortened_url}
     )
+
+
+def user_created_url_view(request):
+    form = user_url_form(request.POST or None)
+    shortened_url = ""
+    slug_seperator = "-"
+    if request.method == "POST":
+        if form.is_valid():
+            new_url = form.save(commit=False)
+
+            shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
+            # -------------------------------
+            new_url.user = request.user
+            new_url.short_url = shortened_url
+            new_url.save()
+        else:
+            form = user_url_form()
+            shortened_url = "Not a Valid URL."
+
+    return render(request, "new.html", {"form": form, "shortened_url": shortened_url})
