@@ -18,8 +18,8 @@ def home(request, token):
 
 
 def profile(request):
-    user = UserProfile.objects.filter(user=request.user)
-    return render(request, "user_profile.html", {"user": user})
+    current_user = UserProfile.objects.filter(user=request.user)
+    return render(request, "user_profile.html", {"current_user": current_user})
 
 
 def my_url(request):
@@ -57,7 +57,7 @@ def edit_profile(request):
 
 
 def new_url(request):
-    form = Url_form(request.POST)
+    form = user_url_form(request.POST)
     shortened_url = ""
     slug_seperator = "-"
     if request.method == "POST":
