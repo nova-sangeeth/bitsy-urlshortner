@@ -14,12 +14,16 @@
     <div>
         <h1>Hello {{ user.username }} Check out Your converted urls.</h1>
     </div>
+    <div>
+        <h1>Number of links converted {{ count }}</h1>
+    </div>
     {% for url in my_url %}
-    <p>Shortened Token: {{ url.short_url }}</p>
+    <p>Shortened Token: {{ url.short_url }} Slug: {{ url.slug }}</p>
+    <p>{{ request.META.HTTP_HOST }}/{{ url.short_url }}{{ url.slug }}</p>
     <p>Main Url:
-        <a href="{{ url.long_url }}">{{ url.long_url }} </a>
+        <a href="{{ url.long_url }}" class="a-my-urls">{{ url.long_url }} </a>
     </p>
-    <p>Slug: {{ url.slug }}</p>
+    <p></p>
     <p>``````````````````````````````````````````````````````````````</p>
     {% endfor %}
     {% endblock content %}
