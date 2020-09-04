@@ -108,3 +108,26 @@ def new_url(request):
         request, "new_url.html", {"form": form, "shortened_url": shortened_url}
     )
 
+
+def new_url_anonymous(request):
+    form = Url_form(request.POST)
+    shortened_url = ""
+    slug_seperator = "-"
+    if request.method == "POST":
+        if form.is_valid():
+            new_url = form.save(commit=False)
+
+            shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
+            # -------------------------------
+            # added this line to link the user foreign key of the user
+            new_url.short_url = shortened_url
+            new_url.save()
+        else:
+            form = Url_form()
+            shortened_url = "Not a Valid URL."
+
+    return render(
+        request,
+        "new_url_anonymous.html",
+        {"form": form, "shortened_url": shortened_url},
+    )
