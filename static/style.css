@@ -17,7 +17,7 @@ body {
   }  
 header, footer, article, nav, div {
   padding: 25px;
-  background: rgb(21, 238, 166);
+  background: #94B0DA;
   
   font-family: 'Open Sans';
   }
@@ -179,7 +179,7 @@ ul {
 } 
 button {
   padding: 9px 25px;
-  background-color: rgba(0, 136, 169, 1);
+  background-color: #505A5B;
   border: none;
   cursor: pointer;
   border-radius: 50px;
