@@ -12,9 +12,15 @@
     {% block content %}
 
     <div class="container-x">
+        {% if user.is_authenticated %}
+        <div>
+            <a href="{% url 'new_url' %}" class="button-1">Generate New Url</a>
+        </div>
+        {% else %}
         <div>
             <a href="{% url 'new_url' %}" class="button">Generate New Url</a>
         </div>
+        {% endif %}
 
     </div>
     {% endblock content %}

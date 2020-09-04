@@ -18,6 +18,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
@@ -26,16 +27,49 @@
 <body>
     <header id="pageHeader">
         <a href="/" style="text-decoration: none; color: rgb(255, 255, 255);">URL Shortner</a>
-    </header>
 
+    </header>
+    <div id="mainNav">
+        {% if user.is_authenticated %}
+
+        <div style='justify-content: space-end;'>
+
+            <a href="{% url 'my_url' %}" class="button-1 "> My URLs</a>
+            <a class="button-1" href="{% url 'account_logout' %}">Sign Out</a>
+        </div>
+
+        {% else %}
+        <div style="justify-content: space-end;">
+            <a class="button" href="{% url 'account_login' %}">Sign In</a>
+            <a class="button" href="{% url 'account_signup' %}">Sign Up</a>
+        </div>
+        {% endif %}
+    </div>
     <div id="mainArticle">
         {% block content %}
 
         {% endblock content %}
     </div>
+    <div id="siteAds">
+        {% if messages %}
+
+        <display>Messages:</display>
+        <ul>
+            {% for message in messages %}
+            <p class="lead"> {{message}}</p>
+            {% endfor %}
+        </ul>
+
+        {% endif %}
+
+
+
+    </div>
     <footer id="pageFooter">
         <center>
-            <a class="" href="{% url 'about' %}">About</a>
+
+            <a href="https://github.com/nova-sangeeth/drix-url" style="font-size:30px; text-decoration: none ;"
+                class="fa fa-github"></a>
         </center>
     </footer>
 

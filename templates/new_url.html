@@ -16,6 +16,7 @@
             <div class="login-box">
                 <p>URL</p>
                 <div class="textbox">
+
                     {{ form.long_url }}
                 </div>
                 <p>Enter a Slug</p>
@@ -27,7 +28,8 @@
                     <p>{{ request.META.HTTP_HOST }}/{{  shortened_url  }}</p>
                     <a class="a-link" href="{{ request.scheme }}://{{ request.get_host }}/{{  shortened_url  }}">Click
                         here to
-                        Redirect.</a>
+                        Redirect.
+                    </a>
                 </center>
             </div>
         </form>
