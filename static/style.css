@@ -186,3 +186,10 @@ button:hover {
   background-color: rgba(0, 87, 169, 0.8);
   text-decoration: none;
 }
+
+a-my-urls {
+  font-family: "Open Sans";
+  font-weight: bold;
+  text-decoration: none;
+  color :rgb(118, 212, 41);
+}
