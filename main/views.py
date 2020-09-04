@@ -28,7 +28,9 @@ def my_url(request):
     count = user_created_url.objects.filter(user=current_user).count()
 
     return render(
-        request, "my_urls.html", {"current_user": current_user, "my_url": my_url}
+        request,
+        "my_urls.html",
+        {"current_user": current_user, "my_url": my_url, "count": count},
     )
 
 
