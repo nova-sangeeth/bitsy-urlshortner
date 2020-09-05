@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL_shortner.</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <form action="" class="form" method="POST">
+            {% csrf_token %}
+            <div class="login-box">
+                <p>URL</p>
+                <div class="textbox">
+
+                    {{ form.long_url }}
+                </div>
+                <p>Enter a Slug</p>
+                <div class="textbox">
+                    {{ form.slug }}
+                </div>
+                <button class="btn ">Create</button>
+                <center>
+                    <p>{{ request.META.HTTP_HOST }}/{{  shortened_url  }}</p>
+                    <a class="a-link" href="{{ request.scheme }}://{{ request.get_host }}/{{  shortened_url  }}">Click
+                        here to
+                        Redirect.
+                    </a>
+                </center>
+            </div>
+        </form>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

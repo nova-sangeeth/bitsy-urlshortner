@@ -17,9 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from main import views
 
+# from free_users.views import home_anonymous
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path("", include("main.urls")),
+    # path("", include("free_users.urls")),
     path("<str:token>", views.home, name="home"),
+    # path("<str:token>", home_anonymous, name="home"),  # --anonymous
+    # path("<str:token>", views.home_auth, name="home_auth"),
 ]

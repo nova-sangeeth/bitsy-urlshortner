@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import short_urls, UserProfile, user_created_url
-from .forms import Url_form, profile_registration_form, user_url_form
+from .models import UserProfile, user_created_url, short_urls
+from .forms import profile_registration_form, user_url_form, Url_form
 from .shortner import shortner
 import tldextract
 from .custom_domain_slugs import *
@@ -16,7 +16,11 @@ def about(request):
 
 
 def home(request, token):
-    long_url = short_urls.objects.filter(short_url=token)[0]
+    current_user = request.user
+    if current_user.is_authenticated:
+        long_url = user_created_url.objects.filter(short_url=token)[0]
+    else:
+        long_url = short_urls.objects.filter(short_url=token)[0]
     return redirect(long_url.long_url)
 
 
@@ -118,3 +122,26 @@ def new_url(request):
         request, "new_url.html", {"form": form, "shortened_url": shortened_url}
     )
 
+
+def new_url_anonymous(request):
+    form = Url_form(request.POST)
+    shortened_url = ""
+    slug_seperator = "-"
+    if request.method == "POST":
+        if form.is_valid():
+            new_url = form.save(commit=False)
+
+            shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
+            # -------------------------------
+            # added this line to link the user foreign key of the user
+            new_url.short_url = shortened_url
+            new_url.save()
+        else:
+            form = Url_form()
+            shortened_url = "Not a Valid URL."
+
+    return render(
+        request,
+        "new_url_anonymous.html",
+        {"form": form, "shortened_url": shortened_url},
+    )
