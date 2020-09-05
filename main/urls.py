@@ -17,6 +17,6 @@ urlpatterns = [
     url(r"^registration/$", registration, name="registration"),
     url(r"^edit_profile/$", edit_profile, name="edit_profile"),
     url(r"^my_url/$", my_url, name="my_url"),
-    url(r"^anonymous/$", new_url_anonymous, name="new_url_anonymous"),
+    url(r"^anonymous/$", new_url_anonymous, name="anonymous"),
 ]
 
