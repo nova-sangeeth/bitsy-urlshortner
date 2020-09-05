@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import short_urls, UserProfile, user_created_url
-from .forms import Url_form, profile_registration_form, user_url_form
+from .models import UserProfile, user_created_url, short_urls
+from .forms import profile_registration_form, user_url_form, Url_form
 from .shortner import shortner
 from .url_ext import url_sep
 import tldextract
@@ -13,7 +13,11 @@ def index(request):
 
 
 def home(request, token):
-    long_url = short_urls.objects.filter(short_url=token)[0]
+    current_user = request.user
+    if current_user.is_authenticated:
+        long_url = user_created_url.objects.filter(short_url=token)[0]
+    else:
+        long_url = short_urls.objects.filter(short_url=token)[0]
     return redirect(long_url.long_url)
 
 
