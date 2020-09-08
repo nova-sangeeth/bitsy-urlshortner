@@ -144,11 +144,12 @@ def url_extract_info(request):
         # check whether it's valid:
         if form.is_valid():
             extracted_data = tldextract.extract(form.cleaned_data["URL"])
-            ext_sub_domain = extracted_data.subdomain
             ext_domain = extracted_data.domain
-            ext_suffix = extracted_data.suffix
+            ext_sub_domain = extracted_data.subdomain
             ext_registered_domain = extracted_data.registered_domain
+            ext_suffix = extracted_data.suffix
             print(extracted_data)
+            return redirect("/")
 
     # if a GET (or any other method) we'll create a blank form
     else:
