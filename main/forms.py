@@ -1,6 +1,7 @@
 from .models import short_urls, UserProfile, user_created_url
 
 from django import forms
+from django.contrib.auth import get_user_model
 
 
 class Url_form(forms.ModelForm):
