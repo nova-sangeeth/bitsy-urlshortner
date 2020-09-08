@@ -22,3 +22,7 @@ class user_url_form(forms.ModelForm):
         model = user_created_url
         fields = "__all__"
         exclude = ("user", "short_url")
+
+
+class url_info_form(forms.Form):
+    URL = forms.URLField(max_length=512, label="Enter the URL")
