@@ -17,6 +17,20 @@ class profile_registration_form(forms.ModelForm):
         exclude = ("user",)
 
 
+class custom_allauth_registration_form(forms.Form):
+    first_name = forms.CharField(max_length=64)
+    last_name = forms.CharField(max_length=64)
+    # Gender = forms.CharField(max_length=6)
+
+    class Meta:
+        model = get_user_model
+
+    def save(self, user):
+        user.first_name = self.cleaned_data["first_name"]
+        user.last_name = self.cleaned_data["last_name"]
+        user.save()
+
+
 class user_url_form(forms.ModelForm):
     class Meta:
         model = user_created_url
