@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import UserProfile, user_created_url, short_urls
-from .forms import profile_registration_form, user_url_form, Url_form
+from .forms import profile_registration_form, user_url_form, Url_form, url_info_form
 from .shortner import shortner
 from .url_ext import url_sep
 import tldextract
@@ -135,3 +135,36 @@ def new_url_anonymous(request):
         "new_url_anonymous.html",
         {"form": form, "shortened_url": shortened_url},
     )
+
+
+def url_extract_info(request):
+    if request.method == "POST":
+        # create a form instance and populate it with data from the request:
+        form = url_info_form(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            extracted_data = tldextract.extract(form.cleaned_data["URL"])
+            ext_sub_domain = extracted_data.subdomain
+            ext_domain = extracted_data.domain
+            ext_suffix = extracted_data.suffix
+            ext_registered_domain = extracted_data.registered_domain
+            print(extracted_data)
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = url_info_form()
+
+    return render(
+        request,
+        "url_info.html",
+        {
+            "form": form,
+            "ext_sub_domain": ext_sub_domain,
+            "ext_domain": ext_domain,
+            "ext_suffix": ext_suffix,
+            "ext_registered_domain": ext_registered_domain,
+        },
+    )
+
+
+# xtracted_url = tldextract.extract(form.cleaned_data["long_url"])
