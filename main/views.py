@@ -131,7 +131,7 @@ def new_url_anonymous(request):
         if form.is_valid():
             new_url = form.save(commit=False)
 
-            shortened_url = shortner().issue_token() + slug_seperator + new_url.slug
+            shortened_url = shortner().issue_token() + slug_seperator
             # -------------------------------
             # added this line to link the user foreign key of the user
             new_url.short_url = shortened_url
