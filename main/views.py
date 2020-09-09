@@ -12,7 +12,8 @@ import datetime
 
 def index(request):
     time = timezone.localtime(timezone.now())
-    return render(request, "index.html", {"time": time})
+    time_zone = timezone.get_current_timezone_name()
+    return render(request, "index.html", {"time": time, "time_zone": time_zone})
 
 
 def home(request, token):
