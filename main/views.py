@@ -6,10 +6,13 @@ from .url_ext import url_sep
 import tldextract
 from .custom_domain_slugs import *
 from django.contrib.auth.models import User
+from django.utils import timezone
+import datetime
 
 
 def index(request):
-    return render(request, "index.html")
+    time = timezone.localtime(timezone.now())
+    return render(request, "index.html", {"time": time})
 
 
 def home(request, token):
