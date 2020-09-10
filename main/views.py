@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import UserProfile, user_created_url, short_urls
 from .forms import profile_registration_form, user_url_form, Url_form, url_info_form
 from .shortner import shortner
@@ -142,21 +142,28 @@ def new_url_anonymous(request):
 
 
 def url_extract_info(request):
+    # create a form instance and populate it with data from the request:
+    form = url_info_form(request.POST)
+    extracted_data = ""
+    ext_suffix = ""
+    ext_registered_domain = ""
+    ext_sub_domain = ""
+    ext_domain = ""
+
+    # check whether it's valid:
     if request.method == "POST":
-        # create a form instance and populate it with data from the request:
-        form = url_info_form(request.POST)
-        # check whether it's valid:
+
         if form.is_valid():
             extracted_data = tldextract.extract(form.cleaned_data["URL"])
-            ext_domain = extracted_data.domain
             ext_sub_domain = extracted_data.subdomain
             ext_registered_domain = extracted_data.registered_domain
+            ext_domain = extracted_data.domain
             ext_suffix = extracted_data.suffix
             print(extracted_data)
-            return redirect("/")
 
     # if a GET (or any other method) we'll create a blank form
     else:
+        # return HttpResponse("<H1>Not a valid Input.</H1>")
         form = url_info_form()
 
     return render(
@@ -164,12 +171,15 @@ def url_extract_info(request):
         "url_info.html",
         {
             "form": form,
-            "ext_sub_domain": ext_sub_domain,
+            # "extracted_data": extracted_data
             "ext_domain": ext_domain,
             "ext_suffix": ext_suffix,
+            "ext_sub_domain": ext_sub_domain,
             "ext_registered_domain": ext_registered_domain,
         },
     )
 
 
 # xtracted_url = tldextract.extract(form.cleaned_data["long_url"])
+# ADD A NEW PATCH FOR THE URL TO SHOW UP IN LI TAGS IMPORTANT
+
