@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
         <H1>Hello there this the url Information Page:</H1>
         <form action="" method="POST">
             {% csrf_token %}
-            {{form}}
+            {{form|crispy}}
             <button type="submit">Submit</button>
         </form>
         <p> Domain: {{ext_domain}}</p>

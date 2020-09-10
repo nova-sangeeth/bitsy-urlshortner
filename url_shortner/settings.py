@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "main",
     # "free_users",
+    "crispy_forms",
     "allauth",
     "allauth.socialaccount",
     "allauth.account",
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
