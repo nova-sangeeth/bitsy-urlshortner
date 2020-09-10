@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "main",
     # "free_users",
+    "crispy_forms",
     "allauth",
     "allauth.socialaccount",
     "allauth.account",
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -112,6 +114,7 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 LOGIN_REDIRECT_URL = "/"
+ACCOUNT_SIGNUP_FORM_CLASS = "main.forms.custom_allauth_registration_form"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

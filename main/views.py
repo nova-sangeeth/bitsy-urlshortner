@@ -1,14 +1,18 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import UserProfile, user_created_url, short_urls
-from .forms import profile_registration_form, user_url_form, Url_form
+from .forms import profile_registration_form, user_url_form, Url_form, url_info_form
 from .shortner import shortner
 import tldextract
 from .custom_domain_slugs import *
 from django.contrib.auth.models import User
+from django.utils import timezone
+import datetime
 
 
 def index(request):
-    return render(request, "index.html")
+    time = timezone.localtime(timezone.now())
+    time_zone = timezone.get_current_timezone_name()
+    return render(request, "index.html", {"time": time, "time_zone": time_zone})
 
 
 def about(request):
@@ -145,3 +149,47 @@ def new_url_anonymous(request):
         "new_url_anonymous.html",
         {"form": form, "shortened_url": shortened_url},
     )
+
+
+def url_extract_info(request):
+    # create a form instance and populate it with data from the request:
+    form = url_info_form(request.POST)
+    extracted_data = ""
+    ext_suffix = ""
+    ext_registered_domain = ""
+    ext_sub_domain = ""
+    ext_domain = ""
+
+    # check whether it's valid:
+    if request.method == "POST":
+
+        if form.is_valid():
+            extracted_data = tldextract.extract(form.cleaned_data["URL"])
+            ext_sub_domain = extracted_data.subdomain
+            ext_registered_domain = extracted_data.registered_domain
+            ext_domain = extracted_data.domain
+            ext_suffix = extracted_data.suffix
+            print(extracted_data)
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        # return HttpResponse("<H1>Not a valid Input.</H1>")
+        form = url_info_form()
+
+    return render(
+        request,
+        "url_info.html",
+        {
+            "form": form,
+            # "extracted_data": extracted_data
+            "ext_domain": ext_domain,
+            "ext_suffix": ext_suffix,
+            "ext_sub_domain": ext_sub_domain,
+            "ext_registered_domain": ext_registered_domain,
+        },
+    )
+
+
+# xtracted_url = tldextract.extract(form.cleaned_data["long_url"])
+# ADD A NEW PATCH FOR THE URL TO SHOW UP IN LI TAGS IMPORTANT
+

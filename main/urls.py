@@ -9,6 +9,7 @@ from .views import (
     edit_profile,
     my_url,
     new_url_anonymous,
+    url_extract_info,
 )
 
 urlpatterns = [
@@ -19,6 +20,7 @@ urlpatterns = [
     url(r"^registration/$", registration, name="registration"),
     url(r"^edit_profile/$", edit_profile, name="edit_profile"),
     url(r"^my_url/$", my_url, name="my_url"),
+    url(r"^url_info/$", url_extract_info, name="url_extract_info"),
     url(r"^anonymous/$", new_url_anonymous, name="anonymous"),
 ]
 
