@@ -11,12 +11,13 @@
 <body>
     {% block content %}
     <h1>Hello there, {{ user.username }}</h1>
+    {% for items in current_user  %}
+    <li class='lead'>Name: {{ items.name }}</li>
+    <li class='lead'>Age: {{ items.age }}</li>
+    <li class='lead'>Country: {{ items.country }}</li>
+    {% endfor %}
     {% endblock content %}
 </body>
-{% for items in user  %}
-<li class='lead'>Name: {{ items.name }}</li>
-<li class='lead'>Age: {{ items.age }}</li>
-<li class='lead'>Country: {{ items.country }}</li>
-{% endfor %}
+
 
 </html>

@@ -28,7 +28,7 @@ def home(request, token):
     return redirect(long_url.long_url)
 
 
-def profile(request):
+def user_profile(request):
     current_user = UserProfile.objects.filter(user=request.user)
     return render(request, "user_profile.html", {"current_user": current_user})
 

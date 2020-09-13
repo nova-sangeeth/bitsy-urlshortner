@@ -16,7 +16,9 @@
         <form action="" method="POST">
             {% csrf_token %}
             {{form|crispy}}
-            <button type="submit">Submit</button>
+            <center>
+                <button type="submit">Submit</button>
+            </center>
         </form>
         <p> Domain: {{ext_domain}}</p>
         <p> Suffix: {{ext_suffix}}</p>
