@@ -38,26 +38,17 @@
     </header>
     <div id="mainNav">
         {% if user.is_authenticated %}
+        <div>
+            <a href="{% url 'url_extract_info' %}" class="button-1"> URL Inspect </a>
+        </div>
+        <div>
+            <a href="{% url 'user_profile' %}" class="button-1"> Profile </a>
+        </div>
+        {% endif %}
 
-        <divstyle='justify-content: center;'>
 
-            <div>
-                <a href="{% url 'my_url' %}" class="button-1 "> My URLs</a>
-            </div>
-            <div>
-                <a href="{% url 'url_extract_info' %}" class="button-1 "> URL Inspect </a>
-            </div>
-            <div>
-                <a class="button-1" href="{% url 'account_logout' %}">Sign Out</a>
-            </div>
     </div>
-    {% else %}
-    <div style="justify-content: space-end;">
-        <a class="button" href="{% url 'account_login' %}">Sign In</a>
-        <a class="button" href="{% url 'account_signup' %}">Sign Up</a>
-    </div>
-    {% endif %}
-    </div>
+
     <div id="mainArticle">
         {% block content %}
 
