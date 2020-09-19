@@ -52,7 +52,7 @@ def registration(request):
     if request.method == "POST":
         if form.is_valid():
             form.save()
-            return redirect("profile")
+            return redirect("user_profile")
     return render(request, "registration.html", {"form": form})
 
 
