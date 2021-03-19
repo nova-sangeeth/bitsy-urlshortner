@@ -25,7 +25,7 @@
 
 <body>
     <header id="pageHeader">
-        <a href="/" style="text-decoration: none; color: rgb(255, 255, 255);">URL Shortner</a>
+        <a href="/" style="text-decoration: none; color: rgb(0, 0, 0);">URL Shortner</a>
         {% if user.is_authenticated %}
         <!-- <nav style="float: right;"> -->
         <a href="{% url 'my_url' %}" class="a-f-right"> My URLs</a>
@@ -65,7 +65,8 @@
         </ul>
 
         {% endif %}
-
+        
+        {% if  request.path == '/' %}
         <div class="patch-time-date">
             <p>
                 Time and Date: {{ time }}
@@ -74,6 +75,7 @@
                 Timezone: {{ time_zone }}
             </p>
         </div>
+        {% endif %}
     </div>
     <footer id="pageFooter">
         <center>
