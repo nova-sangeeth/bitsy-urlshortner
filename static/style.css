@@ -16,7 +16,7 @@ body {
 }
 header {
   padding: 25px;
-  background: #ffffff;
+  background: #1e1e1e11;
   font-family: "Open Sans";
   -webkit-box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, 0.25);
   -moz-box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, 0.25);
@@ -33,10 +33,16 @@ div {
 #pageHeader {
   grid-area: header;
   background-color: (31, 31, 31);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 #pageFooter {
   grid-area: footer;
-  background-color: (31, 31, 31);
+  position: sticky;
+  background-color: #1e1e1e1e;
+  bottom: 0;
+  z-index: 100;
 }
 #mainArticle {
   grid-area: article;
@@ -110,7 +116,7 @@ div {
 }
 .textbox input {
   border: none;
-  border-color: #2196F3;
+  border-color: #2196f3;
   outline: none;
   background: none;
   color: rgb(59, 56, 56);
@@ -248,7 +254,6 @@ a-my-urls {
   transition: all0.3s ease Os;
   margin: auto;
 }
-
 
 .url-list {
   border-radius: 10px;
