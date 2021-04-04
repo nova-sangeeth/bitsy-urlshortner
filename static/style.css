@@ -248,3 +248,11 @@ a-my-urls {
   transition: all0.3s ease Os;
   margin: auto;
 }
+
+
+.url-list {
+  border-radius: 10px;
+  margin: 10px;
+  border-style: solid;
+  border-inline-color: aqua;
+}
