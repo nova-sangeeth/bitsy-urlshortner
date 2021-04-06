@@ -159,7 +159,6 @@ def url_extract_info(request):
     ext_registered_domain = ""
     ext_sub_domain = ""
     ext_domain = ""
-
     # check whether it's valid:
     if request.method == "POST":
 
@@ -190,6 +189,4 @@ def url_extract_info(request):
     )
 
 
-# xtracted_url = tldextract.extract(form.cleaned_data["long_url"])
-# ADD A NEW PATCH FOR THE URL TO SHOW UP IN LI TAGS IMPORTANT
 
