@@ -7,7 +7,7 @@ django-crispy-forms==1.9.1
 django-heroku==0.3.1
 django-import-export==2.3.0
 gitignore==0.0.8
-gunicorn==20.0.4
+gunicorn==22.0.0
 static3==0.7.0
 tldextract==2.2.2
 whitenoise==5.1.0
